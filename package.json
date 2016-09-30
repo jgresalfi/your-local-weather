@@ -1,0 +1,11 @@
+{
+  "name": "your-local-forecast",
+  "version": "1.0.0",
+  "description": "Your local weather...on the 8s.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jason Gresalfi <jason.gresalfi@gmail.com>",
+  "license": "MIT"
+}
