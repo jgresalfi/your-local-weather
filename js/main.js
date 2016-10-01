@@ -5,10 +5,9 @@
 // APPID {APIKEY} is your unique API key
 
 $(document).ready(function() {
-    var apiKey,
-        lat,
-        lon;
-
+		var apiKey,
+				lat,
+				lon;
     function success(position) {
         lat = position.coords.latitude;
         lon = position.coords.longitude;
