@@ -1,8 +1,7 @@
-// OpenWeather API Key: 664847130300b965105640259c4f4829
-//API call:
-// http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID={APIKEY}
+// API call:
+// api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}
 // Parameters:
-// APPID {APIKEY} is your unique API key
+// lat, lon coordinates of the location of your interest
 
 $(document).ready(function() {
 		var apiKey,
@@ -17,6 +16,7 @@ $(document).ready(function() {
             $("#main-icon").html("<h2>" + data.weather[0].description + "</h2>");
         });
     }
-
     navigator.geolocation.getCurrentPosition(success);
-})
+
+
+});
