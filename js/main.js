@@ -1,20 +1,30 @@
-// https://openweathermap.org/current#geo
-// API call:
-// api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}
-// Parameters:
-// lat, lon coordinates of the location of your interest
+//Put Darksky credit on page
+
+'use strict';
 
 $(document).ready(function() {
-		var apiKey,
-				lat,
-				lon;
+    var apiKey,
+        lat,
+        lon;
+
     function success(position) {
         lat = position.coords.latitude;
         lon = position.coords.longitude;
-        apiKey = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=imperial' + '&appid=' + '664847130300b965105640259c4f4829';
-        $.getJSON(apiKey, function(data) {
-            console.log(data);
-            $("#main-icon").html("<h2>" + data.weather[0].description + "</h2>");
+        apiKey = 'https://api.darksky.net/forecast/76fd2a7656964925d285834a02d97c82/' + lat + ", " + lon
+        settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": apiKey,
+            "method": "GET",
+            "dataType": "jsonp",
+            "headers": {
+                "cache-control": "no-cache",
+                "postman-token": "4acc50e3-de9c-74bf-cc03-957b208fc738"
+            }
+        }
+        $.ajax(settings).done(function(response) {
+            console.log(response);
+            $("#main-icon").html("<h2>" + response.currently.icon + "</h2>");
         });
     }
     navigator.geolocation.getCurrentPosition(success);
