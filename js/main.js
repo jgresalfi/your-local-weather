@@ -20,10 +20,15 @@ $(document).ready(function() {
             };
         $.ajax(settings).done(function(response) {
             console.log(response);
-            var skycons = new Skycons({ "color": "black" });
+
+            var skycons = new Skycons({ "color": "orange" });
             skycons.add("main-icon", response.currently.icon);
             skycons.play();
-            console.log(skycons);
+
+            var weatherSum = "<h2 class='summary'>" + response.currently.summary + "</h2>",
+                temp = "<h3>" + response.currently.temperature + "</h3>";
+            $("#today").append(weatherSum, temp);
+
         });
     }
     navigator.geolocation.getCurrentPosition(success);
