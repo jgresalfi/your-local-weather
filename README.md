@@ -12,3 +12,5 @@ Main conditions: currently.icon, currently.summary, currently.temperature, curre
 
 5-day outlook: daily.data[n].icon, daily.data[n].temperatureMax, daily.data[n].temperatureMin
 
+Weather icon values: clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night
+

@@ -21,7 +21,7 @@ $(document).ready(function() {
         $.ajax(settings).done(function(response) {
             console.log(response);
 
-            var skycons = new Skycons({ "color": "orange" });
+            var skycons = new Skycons({ "color": "#fff" });
             skycons.add("main-icon", response.currently.icon);
             skycons.play();
 
