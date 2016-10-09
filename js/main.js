@@ -29,8 +29,41 @@ $(document).ready(function() {
                 temp = "<h3>" + response.currently.temperature + "</h3>";
             $("#today").append(weatherSum, temp);
 
+            switch (response.currently.icon) {
+                case "clear-day":
+                    $("body").css("background-image", "url(../media/clear-day.jpg)");
+                    break;
+                case "clear-night":
+                    $("body").css("background-image", "url(../media/clear-night.jpg)");
+                    break;
+                case "rain":
+                    $("body").css("background-image", "url(../media/rain.jpg)");
+                    break;
+                case "snow":
+                    $("body").css("background-image", "url(../media/snow.jpg)");
+                    break;
+                case "sleet":
+                    $("body").css("background-image", "url(../media/sleet.jpg)");
+                    break;
+                case "wind":
+                    $("body").css("background-image", "url(../media/wind.jpg)");
+                    break;
+                case "fog":
+                    $("body").css("background-image", "url(../media/fog.jpg)");
+                    break;
+                case "cloudy":
+                    $("body").css("background-image", "url(../media/cloudy.jpg)");
+                    break;
+                case "partly-cloudy-day":
+                    $("body").css("background-image", "url(../media/partly-cloudy-day.jpg)");
+                    break;
+                case "partly-cloudy-night":
+                    $("body").css("background-image", "url(../media/partly-cloudy-night.jpg)");
+                    break;
+            }
         });
     }
+
     navigator.geolocation.getCurrentPosition(success);
 });
 

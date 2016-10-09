@@ -6,10 +6,16 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: row;
+}
+
+body {
     height: 100vh;
     width: 80vw;
     margin: 0 auto;
-    background: url('../media/weather-default.jpg') no-repeat center;
+    background-image: url('../media/weather-default.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 #today {
@@ -17,7 +23,7 @@ body {
 }
 
 #main-icon {
-	margin-right: 5%;
+    margin-right: 3.5%;
 }
 
 .ds-credit {
