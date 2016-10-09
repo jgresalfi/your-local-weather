@@ -12,7 +12,11 @@ body {
     height: 100vh;
     width: 80vw;
     margin: 0 auto;
-    background-image: url('../media/weather-default.jpg');
+    background: #3b679e;
+    background: -moz-linear-gradient(-45deg, #3b679e 0%, #207cca 35%, #207cca 35%, #207cca 48%, #2b88d9 59%, #7db9e8 95%);
+    background: -webkit-linear-gradient(-45deg, #3b679e 0%, #207cca 35%, #207cca 35%, #207cca 48%, #2b88d9 59%, #7db9e8 95%);
+    background: linear-gradient(135deg, #3b679e 0%, #207cca 35%, #207cca 35%, #207cca 48%, #2b88d9 59%, #7db9e8 95%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#7db9e8', GradientType=1);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -32,4 +36,34 @@ body {
     position: absolute;
     bottom: 2%;
     left: 2%;
+}
+
+/* Loader and keyframes */
+.signal {
+    border: 5px solid #333;
+    border-radius: 30px;
+    height: 30px;
+    left: 50%;
+    margin: -15px 0 0 -15px;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    width: 30px;
+ 
+    animation: pulsate 1s ease-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulsate {
+    0% {
+      transform: scale(.1);
+      opacity: 0.0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.2);
+      opacity: 0;
+    }
 }

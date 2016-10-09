@@ -39,3 +39,4 @@ jspm_packages
 #Misc directory: images, video, test, etc
 media
 test-data
+.DS_Store

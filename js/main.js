@@ -60,8 +60,11 @@ $(document).ready(function() {
                 case "partly-cloudy-night":
                     $("body").css("background-image", "url(../media/partly-cloudy-night.jpg)");
                     break;
+                    default:
+                    $("body").css("background-color", "url(../media/partly-cloudy-night.jpg)");
             }
         });
+        $("#loader").css("display", "none");
     }
 
     navigator.geolocation.getCurrentPosition(success);
