@@ -26,7 +26,7 @@ $(document).ready(function() {
             skycons.play();
 
             var weatherSum = "<h2 class='summary'>" + response.currently.summary + "</h2>",
-                temp = "<h3>" + response.currently.temperature + "</h3>";
+                temp = "<h3>" + Math.ceil(response.currently.temperature) + String.fromCharCode(176) + "</h3>";
             $("#today").append(weatherSum, temp);
 
             switch (response.currently.icon) {
