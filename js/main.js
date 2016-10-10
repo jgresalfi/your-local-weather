@@ -1,5 +1,3 @@
-//Put Darksky credit on page
-
 'use strict';
 
 $(document).ready(function() {
@@ -19,16 +17,28 @@ $(document).ready(function() {
                 }
             };
         $.ajax(settings).done(function(response) {
+            //Ajax response data object for reference
             console.log(response);
 
+            //Generated weather icons
             var skycons = new Skycons({ "color": "#fff" });
             skycons.add("main-icon", response.currently.icon);
             skycons.play();
 
+            //Temperature display formatting
             var weatherSum = "<h2 class='summary'>" + response.currently.summary + "</h2>",
+                tempTemp = response.currently.temperature.toFixed(1).toString(),
+                temp;
+            if (tempTemp[3] !== 0) {
                 temp = "<h3>" + response.currently.temperature.toFixed(1) + String.fromCharCode(176) + "</h3>";
+            } else {
+                temp = "<h3>" + response.currently.temperature.toFixed(0) + String.fromCharCode(176) + "</h3>";
+            }
+
+            //Write current weather info to page
             $("#today").append(weatherSum, temp);
 
+            //Change background image based on current weather
             switch (response.currently.icon) {
                 case "clear-day":
                     $("body").css("background-image", "url(../media/clear-day.jpg)");
@@ -62,9 +72,12 @@ $(document).ready(function() {
                     break;
             }
         });
+
+        //Remove loading spinner when weather page renders
         $("#loader").css("display", "none");
     }
 
+    //Fire geolocation function and callback
     navigator.geolocation.getCurrentPosition(success);
 });
 
