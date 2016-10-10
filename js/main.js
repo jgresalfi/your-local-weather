@@ -29,10 +29,10 @@ $(document).ready(function() {
             var weatherSum = "<h2 class='summary'>" + response.currently.summary + "</h2>",
                 tempTemp = response.currently.temperature.toFixed(1).toString(),
                 temp;
-            if (tempTemp[3] !== 0) {
-                temp = "<h3>" + response.currently.temperature.toFixed(1) + String.fromCharCode(176) + "</h3>";
-            } else {
+            if (tempTemp[3] === 0) {
                 temp = "<h3>" + response.currently.temperature.toFixed(0) + String.fromCharCode(176) + "</h3>";
+            } else {
+                temp = "<h3>" + response.currently.temperature.toFixed(1) + String.fromCharCode(176) + "</h3>";
             }
 
             //Write current weather info to page
@@ -75,6 +75,7 @@ $(document).ready(function() {
 
         //Remove loading spinner when weather page renders
         $("#loader").css("display", "none");
+        $(".load-header").css("display", "none");
     }
 
     //Fire geolocation function and callback

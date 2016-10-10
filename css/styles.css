@@ -28,6 +28,14 @@ body {
     margin-right: 3.5%;
 }
 
+.load-header {
+	position: absolute;
+	top: 26%;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+}
+
 .ds-credit {
     color: #fff;
     text-decoration: none;
@@ -40,15 +48,15 @@ body {
 /* Loader and keyframes */
 
 .signal {
-    border: 5px solid #333;
+    border: 5px solid #fff;
     border-radius: 30px;
-    height: 30px;
+    height: 55px;
     left: 50%;
-    margin: -15px 0 0 -15px;
+    margin: -13px 0 0 -13px;
     opacity: 0;
     position: absolute;
     top: 50%;
-    width: 30px;
+    width: 55px;
     animation: pulsate 1s ease-out;
     animation-iteration-count: infinite;
 }
