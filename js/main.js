@@ -26,7 +26,7 @@ $(document).ready(function() {
             skycons.play();
 
             var weatherSum = "<h2 class='summary'>" + response.currently.summary + "</h2>",
-                temp = "<h3>" + Math.ceil(response.currently.temperature) + String.fromCharCode(176) + "</h3>";
+                temp = "<h3>" + response.currently.temperature.toFixed(1) + String.fromCharCode(176) + "</h3>";
             $("#today").append(weatherSum, temp);
 
             switch (response.currently.icon) {
@@ -60,8 +60,6 @@ $(document).ready(function() {
                 case "partly-cloudy-night":
                     $("body").css("background-image", "url(../media/partly-cloudy-night.jpg)");
                     break;
-                    default:
-                    $("body").css("background-color", "url(../media/partly-cloudy-night.jpg)");
             }
         });
         $("#loader").css("display", "none");
