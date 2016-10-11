@@ -30,9 +30,9 @@ $(document).ready(function() {
                 tempTemp = response.currently.temperature.toFixed(1).toString(),
                 temp;
             if (tempTemp[3] === 0) {
-                temp = "<h3>" + response.currently.temperature.toFixed(0) + String.fromCharCode(176) + "</h3>";
+                temp = "<h3 class='temp'>" + response.currently.temperature.toFixed(0) + String.fromCharCode(176) + "</h3>";
             } else {
-                temp = "<h3>" + response.currently.temperature.toFixed(1) + String.fromCharCode(176) + "</h3>";
+                temp = "<h3 class='temp'>" + response.currently.temperature.toFixed(1) + String.fromCharCode(176) + "</h3>";
             }
 
             //Write current weather info to page
