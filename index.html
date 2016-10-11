@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Planetary Weather</title>
-	<link rel="stylesheet" href="node_modules/normalize.css/normalize.css" class="href">
-	<link href="https://fonts.googleapis.com/css?family=Nunito:300,400" rel="stylesheet">
-	<link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <title>Planetary Weather</title>
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css" class="href">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-	<div class="icon-container"><canvas id="main-icon" width="128" height="128"></canvas></div>
-	<div id="today"></div>
-	<div id="temp-convert"></div>
-	<!-- <div id="day1"></div>
+    <div class="icon-container">
+        <canvas id="main-icon" width="128" height="128"></canvas>
+    </div>
+    <div id="today"></div>
+    <div class="temp-switcher">
+        <input id="fahrenheit" type="button" value="F">
+        <input id="celsius" type="button" value="C">
+    </div>
+    <!-- <div id="day1"></div>
 	<div id="day2"></div>
 	<div id="day3"></div>
 	<div id="day3"></div>
 	<div id="day3"></div> -->
-	<h1 class="load-header">Hold on, I'm looking out the window...</h1>
-	<div id="loader" class="signal"></div>
-	<a class="ds-credit" href="https://darksky.net/poweredby/">Powered by Dark Sky</a>
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script src="js/main.js"></script>
+    <h1 class="load-header">Hold on, I'm looking out the window...</h1>
+    <div id="loader" class="signal"></div>
+    <a class="ds-credit" href="https://darksky.net/poweredby/">Powered by Dark Sky</a>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>
