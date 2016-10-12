@@ -26,7 +26,7 @@ body {
 
 .icon-container {
     display: flex;
-    background-color: rgba(0, 0, 0, 0.06);
+    background-color: rgba(0, 0, 0, 0.15);
     border-radius: 100%;
     width: 200px;
     height: 200px;
@@ -43,7 +43,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.06);
+    background-color: rgba(0, 0, 0, 0.15);
     border-radius: 100%;
     width: 200px;
     height: 200px;
@@ -71,8 +71,8 @@ body {
 
 #fahrenheit:hover,
 #celsius:hover {
-	background-color: rgba(0,0,0,0.32);
-	transition: transform .2s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.32);
+    transition: transform .2s ease-in-out;
 }
 
 .temp,
@@ -100,8 +100,8 @@ body {
 
 input,
 button:focus {
-	border: none;
-	outline: none;
+    border: none;
+    outline: none;
 }
 
 
@@ -119,6 +119,10 @@ button:focus {
     width: 55px;
     animation: pulsate 1s ease-out;
     animation-iteration-count: infinite;
+}
+
+.temp-btn-effect {
+    animation: pulsate 1s ease-out;
 }
 
 @keyframes pulsate {

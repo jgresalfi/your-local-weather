@@ -76,11 +76,25 @@ $(document).ready(function() {
         //Remove loading spinner when weather page renders
         $("#loader").css("display", "none");
         $(".load-header").css("display", "none");
-    }
+    } //End success function
 
     //Fire geolocation function and callback
     navigator.geolocation.getCurrentPosition(success);
-});
+
+    //Click effect for temp conversion buttons - that variable binds "this" to original calling function context
+    function btnEffect() {
+        var that = this;
+        $(this).addClass("temp-btn-effect");
+        window.setTimeout(function() {
+            if (that.getAttribute("id") === "fahrenheit") {
+                $("#fahrenheit").removeClass('temp-btn-effect')
+            } else { $("#celsius").removeClass("temp-btn-effect") }
+        }, 500);
+    }
+    $("#fahrenheit").on('click', btnEffect);
+    $("#celsius").on('click', btnEffect);
+
+}); //End doc ready
 
 //Skycons JS
 
