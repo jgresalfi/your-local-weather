@@ -87,13 +87,11 @@ $(document).ready(function() {
         $(this).addClass("temp-btn-effect");
         window.setTimeout(function() {
             if (that.getAttribute("id") === "fahrenheit") {
-                $("#fahrenheit").removeClass('temp-btn-effect')
+                $(that).removeClass('temp-btn-effect')
             } else { $("#celsius").removeClass("temp-btn-effect") }
         }, 500);
     }
-    $("#fahrenheit").on('click', btnEffect);
-    $("#celsius").on('click', btnEffect);
-
+    $("#fahrenheit, #celsius").on('click', btnEffect);
 }); //End doc ready
 
 //Skycons JS
