@@ -1,6 +1,7 @@
 'use strict';
 
 $(document).ready(function() {
+  var mainTemp;
     function success(position) {
         var lat = position.coords.latitude,
             lon = position.coords.longitude,
@@ -19,6 +20,8 @@ $(document).ready(function() {
         $.ajax(settings).done(function(response) {
             //Ajax response data object for reference
             console.log(response);
+            //Set mainTemp variable for temp conversion feature
+            mainTemp = response.currently.temperature;
 
             //Generated weather icons
             var skycons = new Skycons({ "color": "#fff" });
@@ -85,14 +88,14 @@ $(document).ready(function() {
     //Click effect and temp conversion for f/c buttons
     function btnEffect() {
         var that = this,
-            tempFrag = $(".temp").text(),
             temp,
             tempCel;
+            console.log(mainTemp);
         //Set 'temp' variable decimal place for temp display
-        if (tempFrag[3] === 0) {
-          temp = (parseInt(tempFrag, 10));
+        if (mainTemp[3] === 0) {
+          temp = (parseInt(mainTemp, 10));
         } else {
-          temp = (parseFloat(tempFrag)).toFixed(1);
+          temp = (parseFloat(mainTemp)).toFixed(1);
         }
         //Bind the pulse effect to element click event
         $(this).addClass("temp-btn-effect");
@@ -102,14 +105,14 @@ $(document).ready(function() {
             if (that.getAttribute("id") === "fahrenheit") {
                 $("#fahrenheit").addClass("btn-darken");
                 $("#celsius").removeClass("btn-darken");
-                $(".temp").html(temp + String.fromCharCode(176));
+                $(".temp").empty().html(temp + String.fromCharCode(176));
                 $(that).removeClass("temp-btn-effect");
             } else {
                 tempCel = (temp - 32) * .5556;
                 $("#celsius").addClass("btn-darken");
                 $("#fahrenheit").removeClass("btn-darken");
-                $(".temp").css("display", "none");
-                $("#today").append("<h3 class='temp'>" + tempCel.toFixed(1) + String.fromCharCode(176) + "</h3>")
+                $(".temp").empty().html(tempCel.toFixed(1) + String.fromCharCode(176));;
+                // $("#today").append("<h3 class='temp'>" + tempCel.toFixed(1) + String.fromCharCode(176) + "</h3>");
                 $("#celsius").removeClass("temp-btn-effect");
             }
         }, 1000);
