@@ -84,7 +84,7 @@ body {
 
 .load-header {
     position: absolute;
-    top: 26%;
+    top: 38%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -109,16 +109,22 @@ button:focus {
 
 .signal {
     border: 5px solid #fff;
-    border-radius: 30px;
+    border-radius: 50px;
     height: 55px;
     left: 50%;
-    margin: -13px 0 0 -13px;
+    margin: -8px 0 0 -8px;
     opacity: 0;
     position: absolute;
     top: 50%;
     width: 55px;
     animation: pulsate 1s ease-out;
     animation-iteration-count: infinite;
+}
+
+.icon-container,
+.temp-switcher,
+#today {
+	visibility: hidden;
 }
 
 .temp-btn-effect {

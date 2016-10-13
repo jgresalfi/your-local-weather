@@ -73,9 +73,10 @@ $(document).ready(function() {
             }
         });
 
-        //Remove loading spinner when weather page renders
+        //Remove loading spinner when weather page renders and unhide weather bubbles
         $("#loader").css("display", "none");
         $(".load-header").css("display", "none");
+        $(".icon-container, .temp-switcher, #today").css("visibility", "visible");
     } //End success function
 
     //Fire geolocation function and callback
