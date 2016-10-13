@@ -82,16 +82,39 @@ $(document).ready(function() {
     //Fire geolocation function and callback
     navigator.geolocation.getCurrentPosition(success);
 
-    //Click effect for temp conversion buttons - that variable binds "this" to original calling function context
+    //Click effect and temp conversion for f/c buttons
     function btnEffect() {
-        var that = this;
+        var that = this,
+            tempFrag = $(".temp").text(),
+            temp,
+            tempCel;
+        //Set 'temp' variable decimal place for temp display
+        if (tempFrag[3] === 0) {
+          temp = (parseInt(tempFrag, 10));
+        } else {
+          temp = (parseFloat(tempFrag)).toFixed(1);
+        }
+        //Bind the pulse effect to element click event
         $(this).addClass("temp-btn-effect");
+
+        //Timeout function that resets pulse effect and converts temp to Cel or Fahr - this should be two separate funcs
         window.setTimeout(function() {
             if (that.getAttribute("id") === "fahrenheit") {
-                $(that).removeClass('temp-btn-effect')
-            } else { $("#celsius").removeClass("temp-btn-effect") }
-        }, 500);
-    }
+                $("#fahrenheit").addClass("btn-darken");
+                $("#celsius").removeClass("btn-darken");
+                $(".temp").html(temp + String.fromCharCode(176));
+                $(that).removeClass("temp-btn-effect");
+            } else {
+                tempCel = (temp - 32) * .5556;
+                $("#celsius").addClass("btn-darken");
+                $("#fahrenheit").removeClass("btn-darken");
+                $(".temp").css("display", "none");
+                $("#today").append("<h3 class='temp'>" + tempCel.toFixed(1) + String.fromCharCode(176) + "</h3>")
+                $("#celsius").removeClass("temp-btn-effect");
+            }
+        }, 1000);
+    } //End btnEffect
+
     $("#fahrenheit, #celsius").on('click', btnEffect);
 }); //End doc ready
 

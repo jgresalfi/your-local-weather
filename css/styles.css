@@ -105,7 +105,7 @@ button:focus {
 }
 
 
-/* Loader and keyframes */
+/* Loader and keyframes for splash page */
 
 .signal {
     border: 5px solid #fff;
@@ -129,6 +129,10 @@ button:focus {
 
 .temp-btn-effect {
     animation: pulsate 1s ease-out;
+}
+
+.btn-darken {
+	background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
 @keyframes pulsate {
