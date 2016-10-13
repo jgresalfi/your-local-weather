@@ -1,7 +1,8 @@
 'use strict';
 
 $(document).ready(function() {
-  var mainTemp;
+    var mainTemp;
+
     function success(position) {
         var lat = position.coords.latitude,
             lon = position.coords.longitude,
@@ -91,12 +92,11 @@ $(document).ready(function() {
         var that = this,
             temp,
             tempCel;
-            console.log(mainTemp);
         //Set 'temp' variable decimal place for temp display
         if (mainTemp[3] === 0) {
-          temp = (parseInt(mainTemp, 10));
+            temp = (parseInt(mainTemp, 10));
         } else {
-          temp = (parseFloat(mainTemp)).toFixed(1);
+            temp = (parseFloat(mainTemp)).toFixed(1);
         }
         //Bind the pulse effect to element click event
         $(this).addClass("temp-btn-effect");
@@ -105,12 +105,12 @@ $(document).ready(function() {
         window.setTimeout(function() {
             if (that.getAttribute("id") === "fahrenheit") {
                 $("#fahrenheit, #celsius").toggleClass("btn-darken");
-                $(".temp").empty().html(temp + String.fromCharCode(176));
+                $(".temp").html(temp + String.fromCharCode(176));
                 $(that).removeClass("temp-btn-effect");
             } else {
                 tempCel = (temp - 32) * .5556;
                 $("#celsius, #fahrenheit").toggleClass("btn-darken");
-                $(".temp").empty().html(tempCel.toFixed(1) + String.fromCharCode(176));
+                $(".temp").html(tempCel.toFixed(1) + String.fromCharCode(176));
                 $("#celsius").removeClass("temp-btn-effect");
             }
         }, 1000);
@@ -118,7 +118,7 @@ $(document).ready(function() {
 
     $("#fahrenheit, #celsius").on('click', btnEffect);
 
-}); //End doc ready
+}); //End docready
 
 //Skycons JS
 
