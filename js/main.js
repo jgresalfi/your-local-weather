@@ -76,10 +76,11 @@ $(document).ready(function() {
             }
         });
 
-        //Remove loading spinner when weather page renders and unhide weather bubbles
+        //Remove loading spinner when weather page renders, unhide weather bubbles and set button default shading
         $("#loader").css("display", "none");
         $(".load-header").css("display", "none");
         $(".icon-container, .temp-switcher, #today").css("visibility", "visible");
+        $("#fahrenheit").addClass("btn-darken");
     } //End success function
 
     //Fire geolocation function and callback
@@ -103,22 +104,20 @@ $(document).ready(function() {
         //Timeout function that resets pulse effect and converts temp to Cel or Fahr - this should be two separate funcs
         window.setTimeout(function() {
             if (that.getAttribute("id") === "fahrenheit") {
-                $("#fahrenheit").addClass("btn-darken");
-                $("#celsius").removeClass("btn-darken");
+                $("#fahrenheit, #celsius").toggleClass("btn-darken");
                 $(".temp").empty().html(temp + String.fromCharCode(176));
                 $(that).removeClass("temp-btn-effect");
             } else {
                 tempCel = (temp - 32) * .5556;
-                $("#celsius").addClass("btn-darken");
-                $("#fahrenheit").removeClass("btn-darken");
-                $(".temp").empty().html(tempCel.toFixed(1) + String.fromCharCode(176));;
-                // $("#today").append("<h3 class='temp'>" + tempCel.toFixed(1) + String.fromCharCode(176) + "</h3>");
+                $("#celsius, #fahrenheit").toggleClass("btn-darken");
+                $(".temp").empty().html(tempCel.toFixed(1) + String.fromCharCode(176));
                 $("#celsius").removeClass("temp-btn-effect");
             }
         }, 1000);
     } //End btnEffect
 
     $("#fahrenheit, #celsius").on('click', btnEffect);
+
 }); //End doc ready
 
 //Skycons JS
