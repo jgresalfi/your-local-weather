@@ -1,5 +1,5 @@
 # your-local-weather
-Your local weather...again!
+Your local weather...again - now with natural jQuery flavoring!
 
 #app task list
 
